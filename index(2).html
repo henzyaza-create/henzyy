@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOCHNAYA — Penguasa Bayangan Wilayah LV</title>
+    
+    <!-- Google Fonts: Cinzel (Heading) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            base: '#0A0A0A',
+                            surface: '#121212',
+                            card: '#1A1A1A',
+                        },
+                        mafiaRed: {
+                            DEFAULT: '#DC2626',
+                            dark: '#991B1B',
+                            crimson: '#B91C1C',
+                        },
+                        bronze: {
+                            dark: '#3D2314',
+                            medium: '#5C3A21',
+                            warm: '#8C5A33',
+                            accent: '#A0633B',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-red': '0 0 20px rgba(220, 38, 38, 0.4)',
+                        'glow-red-lg': '0 0 35px rgba(185, 28, 28, 0.6)',
+                        'bronze-border': '0 0 15px rgba(61, 35, 20, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Pattern Overlay Background CSS */
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-dark-base text-gray-300 font-body antialiased selection:bg-mafiaRed selection:text-white border-t-4 border-mafiaRed">
+
+    <!-- 1. NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-dark-base/90 backdrop-blur-md border-b border-bronze-dark/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo / Brand Name -->
+            <a href="#" class="font-heading font-black text-2xl sm:text-3xl tracking-[0.2em] text-mafiaRed hover:text-red-500 transition-all duration-300 drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]">
+                N O C H N A Y A
+            </a>
+
+            <!-- Desktop Menu Link -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider">
+                <a href="#home" class="text-gray-300 hover:text-mafiaRed transition-colors duration-200">Home</a>
+                <a href="#tentang-lv" class="text-gray-300 hover:text-mafiaRed transition-colors duration-200">Tentang LV</a>
+                <a href="#hierarki" class="text-gray-300 hover:text-mafiaRed transition-colors duration-200">Hierarki</a>
+                <a href="#nilai-utama" class="text-gray-300 hover:text-mafiaRed transition-colors duration-200">Nilai Utama</a>
+            </nav>
+
+            <!-- CTA Button Navbar -->
+            <div class="hidden sm:block">
+                <a href="#gabung" class="inline-block px-5 py-2.5 text-xs font-bold tracking-widest text-white uppercase bg-mafiaRed-dark hover:bg-mafiaRed border border-bronze-warm/60 rounded-sm shadow-md hover:shadow-glow-red transition-all duration-300 transform hover:-translate-y-0.5">
+                    GABUNG BARISAN
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-surface border-b border-bronze-dark px-4 pt-3 pb-6 space-y-3 font-semibold text-center">
+            <a href="#home" class="block py-2 text-gray-300 hover:text-mafiaRed">Home</a>
+            <a href="#tentang-lv" class="block py-2 text-gray-300 hover:text-mafiaRed">Tentang LV</a>
+            <a href="#hierarki" class="block py-2 text-gray-300 hover:text-mafiaRed">Hierarki</a>
+            <a href="#nilai-utama" class="block py-2 text-gray-300 hover:text-mafiaRed">Nilai Utama</a>
+            <a href="#gabung" class="inline-block w-full py-3 mt-2 text-xs font-bold tracking-widest text-white uppercase bg-mafiaRed border border-bronze-warm rounded-sm">
+                GABUNG BARISAN
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-grid-pattern">
+        <!-- Radial Gradient Overlay -->
+        <div class="absolute inset-0 bg-radial-gradient from-transparent via-dark-base/80 to-dark-base pointer-events-none"></div>
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-mafiaRed/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-bronze-dark/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <!-- Tagline Kecil -->
+            <p class="font-heading font-bold text-xs sm:text-sm md:text-base tracking-[0.3em] text-bronze-accent uppercase mb-4 sm:mb-6">
+                MATAHARI BOLEH TENGGELAM, TAPI DOMINASI TAK PERNAH PADAM
+            </p>
+
+            <!-- Main Title (H1) -->
+            <h1 class="font-heading font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-wide leading-tight mb-6">
+                PENGUASA BAYANGAN DI TENGAH <span class="text-transparent bg-clip-text bg-gradient-to-r from-mafiaRed via-red-500 to-bronze-accent">GEMPURAN ZAMAN</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-10">
+                Ketika dunia luar terus berubah dan organisasi lain berguguran, <span class="text-white font-semibold">Nochnaya</span> berdiri teguh sebagai benteng kekuatan yang tak tergoyahkan. Berakar dari tradisi kehormatan Rusia dan ditempa oleh disiplin besi, kami bukan sekadar komunitas—kami adalah kekaisaran yang mengendalikan takdir wilayah LV.
+            </p>
+
+            <!-- Dual CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <!-- Primary Button -->
+                <a href="#gabung" class="w-full sm:w-auto px-8 py-4 bg-mafiaRed text-white font-bold tracking-widest uppercase text-xs sm:text-sm rounded-sm hover:bg-mafiaRed-crimson shadow-glow-red hover:shadow-glow-red-lg transition-all duration-300 transform hover:-translate-y-1">
+                    GABUNG BARISAN
+                </a>
+                <!-- Secondary Button -->
+                <a href="#hierarki" class="w-full sm:w-auto px-8 py-4 bg-dark-surface text-gray-200 border border-bronze-warm/70 font-bold tracking-widest uppercase text-xs sm:text-sm rounded-sm hover:border-mafiaRed hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                    PELAJARI HIERARKI
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-bronze-dark to-transparent"></div>
+
+    <!-- 3. SECTION 1 — BENTENG LV -->
+    <section id="tentang-lv" class="py-20 bg-dark-base relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-wider mb-4">
+                    MENGAPA LV BEGITU KOKOH & <span class="text-mafiaRed">TAK TERSENTUH?</span>
+                </h2>
+                <div class="w-24 h-1 bg-mafiaRed mx-auto mb-6"></div>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    Wilayah LV bukan sekadar garis di atas peta; itu adalah wilayah kekuasaan kami. Kehadiran Nochnaya memberikan fondasi baja yang membuat LV tetap menjadi wilayah paling kuat, aman, dan berpengaruh.
+                </p>
+            </div>
+
+            <!-- Grid 3 Kartu -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-dark-surface p-8 rounded-sm border border-bronze-dark hover:border-mafiaRed transition-all duration-300 hover:-translate-y-2 group shadow-lg">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-dark-card border border-bronze-warm text-mafiaRed group-hover:bg-mafiaRed group-hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-mafiaRed transition-colors">
+                        Perlindungan Mutlak (Krysha)
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Tidak ada ancaman yang bisa menyentuh wilayah LV tanpa melewati barisan depan kami.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-dark-surface p-8 rounded-sm border border-bronze-dark hover:border-mafiaRed transition-all duration-300 hover:-translate-y-2 group shadow-lg">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-dark-card border border-bronze-warm text-mafiaRed group-hover:bg-mafiaRed group-hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-mafiaRed transition-colors">
+                        Ketahanan Era Modern
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Beradaptasi dengan strategi modern tanpa pernah kehilangan cengkeraman kekuasaan tradisional.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-dark-surface p-8 rounded-sm border border-bronze-dark hover:border-mafiaRed transition-all duration-300 hover:-translate-y-2 group shadow-lg">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-dark-card border border-bronze-warm text-mafiaRed group-hover:bg-mafiaRed group-hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-3 group-hover:text-mafiaRed transition-colors">
+                        Ekonomi & Pengaruh
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Menguasai pergerakan dan sumber daya utama di LV, memastikan seluruh anggota dan sekutu berada di puncak rantai makanan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECTION 2 — HIERARKI & DISIPLIN ORGANISASI -->
+    <section id="hierarki" class="py-20 bg-dark-surface relative border-y border-bronze-dark/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-wider mb-4">
+                    DISIPLIN ADALAH KEKUATAN. <br><span class="text-mafiaRed">HIERARKI ADALAH HUKUM.</span>
+                </h2>
+                <div class="w-24 h-1 bg-mafiaRed mx-auto"></div>
+            </div>
+
+            <!-- Hierarchy Tree / Vertical Steps -->
+            <div class="relative border-l-2 border-mafiaRed/50 ml-4 md:ml-32 space-y-8">
+                
+                <!-- Rank 1 -->
+                <div class="relative pl-6 md:pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-mafiaRed rounded-full border-4 border-dark-surface group-hover:scale-125 transition-transform"></div>
+                    <div class="bg-dark-card p-5 rounded-sm border border-bronze-dark group-hover:border-mafiaRed transition-all duration-300">
+                        <span class="text-xs font-bold tracking-widest text-bronze-accent uppercase block mb-1">Tingkat I</span>
+                        <h3 class="font-heading font-extrabold text-lg sm:text-xl text-white">VOR V ZAKONE</h3>
+                        <p class="text-xs sm:text-sm text-gray-400 mt-1">Puncak Kepemimpinan & Hukum Tertinggi</p>
+                    </div>
+                </div>
+
+                <!-- Rank 2 -->
+                <div class="relative pl-6 md:pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-bronze-warm rounded-full border-4 border-dark-surface group-hover:scale-125 group-hover:bg-mafiaRed transition-transform"></div>
+                    <div class="bg-dark-card p-5 rounded-sm border border-bronze-dark group-hover:border-mafiaRed transition-all duration-300">
+                        <span class="text-xs font-bold tracking-widest text-bronze-accent uppercase block mb-1">Tingkat II</span>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white">AVTORITET / PAKHAN</h3>
+                        <p class="text-xs sm:text-sm text-gray-400 mt-1">Strategis & Komandan Sektor LV</p>
+                    </div>
+                </div>
+
+                <!-- Rank 3 -->
+                <div class="relative pl-6 md:pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-bronze-warm rounded-full border-4 border-dark-surface group-hover:scale-125 group-hover:bg-mafiaRed transition-transform"></div>
+                    <div class="bg-dark-card p-5 rounded-sm border border-bronze-dark group-hover:border-mafiaRed transition-all duration-300">
+                        <span class="text-xs font-bold tracking-widest text-bronze-accent uppercase block mb-1">Tingkat III</span>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white">BRIGADIR</h3>
+                        <p class="text-xs sm:text-sm text-gray-400 mt-1">Pemimpin Operasional Lapangan</p>
+                    </div>
+                </div>
+
+                <!-- Rank 4 -->
+                <div class="relative pl-6 md:pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-bronze-warm rounded-full border-4 border-dark-surface group-hover:scale-125 group-hover:bg-mafiaRed transition-transform"></div>
+                    <div class="bg-dark-card p-5 rounded-sm border border-bronze-dark group-hover:border-mafiaRed transition-all duration-300">
+                        <span class="text-xs font-bold tracking-widest text-bronze-accent uppercase block mb-1">Tingkat IV</span>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white">BOEVIK</h3>
+                        <p class="text-xs sm:text-sm text-gray-400 mt-1">Prajurit Eksekutor & Benteng Utama</p>
+                    </div>
+                </div>
+
+                <!-- Rank 5 -->
+                <div class="relative pl-6 md:pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-bronze-medium rounded-full border-4 border-dark-surface group-hover:scale-125 group-hover:bg-mafiaRed transition-transform"></div>
+                    <div class="bg-dark-card p-5 rounded-sm border border-bronze-dark group-hover:border-mafiaRed transition-all duration-300">
+                        <span class="text-xs font-bold tracking-widest text-bronze-accent uppercase block mb-1">Tingkat V</span>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white">SHESTYORKA</h3>
+                        <p class="text-xs sm:text-sm text-gray-400 mt-1">Garis Depan Pembuktian Loyalitas</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Highlight Quote Box -->
+            <div class="mt-16 bg-bronze-dark p-6 sm:p-8 rounded-sm border-l-4 border-mafiaRed shadow-lg text-center">
+                <p class="font-heading text-base sm:text-lg italic text-gray-100 leading-relaxed">
+                    "Di bawah naungan Nochnaya, tidak ada ruang untuk kelemahan. Hanya ada loyalitas, kehormatan, dan kekuatan mutlak."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SECTION 3 — TIGA PILAR KEKUATAN -->
+    <section id="nilai-utama" class="py-20 bg-dark-base relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-wider mb-4">
+                    TIGA PILAR KEKUATAN <span class="text-mafiaRed">NOCHNAYA</span>
+                </h2>
+                <div class="w-24 h-1 bg-mafiaRed mx-auto"></div>
+            </div>
+
+            <!-- Grid 3 Column -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pilar 1 -->
+                <div class="bg-dark-surface p-8 rounded-sm border-t-2 border-mafiaRed border-x border-b border-bronze-dark hover:border-bronze-accent transition-all duration-300">
+                    <div class="text-mafiaRed font-heading font-extrabold text-3xl mb-4">01</div>
+                    <h3 class="font-heading font-bold text-lg text-white mb-2 uppercase tracking-wide">DOKTRIN BESI</h3>
+                    <span class="text-xs font-bold text-bronze-accent uppercase block mb-4">(Iron Discipline)</span>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Tradisi lama yang dijunjung tinggi. Sekali janji terucap, loyalitas adalah harga mati.
+                    </p>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="bg-dark-surface p-8 rounded-sm border-t-2 border-mafiaRed border-x border-b border-bronze-dark hover:border-bronze-accent transition-all duration-300">
+                    <div class="text-mafiaRed font-heading font-extrabold text-3xl mb-4">02</div>
+                    <h3 class="font-heading font-bold text-lg text-white mb-2 uppercase tracking-wide">ADAPTASI TANPA BATAS</h3>
+                    <span class="text-xs font-bold text-bronze-accent uppercase block mb-4">(Modern Supremacy)</span>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Memadukan taktik klasik dengan strategi modern untuk menguasai medan pertempuran dan bisnis di era gempuran saat ini.
+                    </p>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="bg-dark-surface p-8 rounded-sm border-t-2 border-mafiaRed border-x border-b border-bronze-dark hover:border-bronze-accent transition-all duration-300">
+                    <div class="text-mafiaRed font-heading font-extrabold text-3xl mb-4">03</div>
+                    <h3 class="font-heading font-bold text-lg text-white mb-2 uppercase tracking-wide">PERSATUAN KELUARGA</h3>
+                    <span class="text-xs font-bold text-bronze-accent uppercase block mb-4">(Brotherhood Above All)</span>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Di dalam Nochnaya, kamu tidak berjuang sendirian. Seluruh struktur dari atas hingga bawah berdiri saling menopang.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER / CALL TO ACTION FINAL -->
+    <footer id="gabung" class="relative py-20 bg-dark-card border-t border-bronze-dark overflow-hidden">
+        <!-- Ambient glow -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-mafiaRed/10 blur-[120px] pointer-events-none"></div>
+
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-wider mb-6">
+                SIAP UJI LOYALITASMU DI <span class="text-mafiaRed">WILAYAH LV?</span>
+            </h2>
+
+            <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
+                LV membutuhkan mereka yang memiliki keberanian, kedisiplinan, dan tekad baja. Buktikan dirimu dan ambil tempatmu dalam struktur hierarki penguasa malam.
+            </p>
+
+            <!-- Large CTA Button -->
+            <div class="mb-16">
+                <a href="#" class="inline-block px-10 py-5 bg-mafiaRed hover:bg-mafiaRed-crimson text-white font-heading font-bold text-base sm:text-lg tracking-[0.2em] uppercase rounded-sm shadow-glow-red hover:shadow-glow-red-lg transition-all duration-300 transform hover:-translate-y-1">
+                    AJUKAN DIRI SEKARANG
+                </a>
+            </div>
+
+            <!-- Divider Line -->
+            <div class="w-full h-px bg-bronze-dark/60 mb-8"></div>
+
+            <!-- Copyright -->
+            <p class="text-xs sm:text-sm text-gray-400 font-medium tracking-widest">
+                &copy; Nochnaya Russia Mafia — Undefeated. Unshakable. Unmatched.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
